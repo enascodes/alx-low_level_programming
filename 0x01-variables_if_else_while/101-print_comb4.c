@@ -1,40 +1,40 @@
+/*
+ * File: 101-print_comb4.c
+ * Auth: Brennan D Baraban
+ */
+
 #include <stdio.h>
 
 /**
- * main - program that prints all possible combinations of
- * two two-digit
- * The numbers should range from 0 to 99
- * Numbers must be separated by ,followed by a space
- * All numbers should be printed with two digits. 1 should be printed as 01
- * Return: 0
+ * main - Prints all possible combinations of three different digits,
+ *        in ascending order, separated by a comma followed by a space.
+ *
+ * Return: Always 0.
  */
-
 int main(void)
 {
-	int n1 = 48;
-	int a = 0;
-	int b;
-	int com = 44;
+	int digit1, digit2, digit3;
 
-	while (a <= 99)
+	for (digit1 = 0; digit1 < 8; digit1++)
 	{
-		b = a + 1;
-		while (b <= 99)
+		for (digit2 = digit1 + 1; digit2 < 9; digit2++)
 		{
-			putchar((a / 10) + n1);
-			putchar((a % 10) + n1);
-			putchar(32);
-			putchar((b / 10) + n1);
-			putchar((b % 10) + n1);
-			if (a != 98 || b != 99)
+			for (digit3 = digit2 + 1; digit3 < 10; digit3++)
 			{
-				putchar(com);
-				putchar(32);
+				putchar((digit1 % 10) + '0');
+				putchar((digit2 % 10) + '0');
+				putchar((digit3 % 10) + '0');
+
+				if (digit1 == 7 && digit2 == 8 && digit3 == 9)
+					continue;
+				
+				putchar(',');
+				putchar(' ');
 			}
-			b += 1;
 		}
-		a += 1;
 	}
+
 	putchar('\n');
+
 	return (0);
 }
