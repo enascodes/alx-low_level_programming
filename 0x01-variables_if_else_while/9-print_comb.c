@@ -22,6 +22,7 @@ putchar(' ');
 }
 else if (i == 9)
 putchar(i + '0');
+putchar(' ');
 }
 return (0);
 }
