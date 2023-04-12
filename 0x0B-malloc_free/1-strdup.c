@@ -1,28 +1,52 @@
-#include "main.h"
+#include "notrebloh.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
- * char *_strdup - a function that returns a pointer to a newly allocated space
- * @str: string
- * Return: NULL if str = NULL otherwise return a pointer
+ * _strlen - return length of a string
+ *
+ * @s: char type
+ * Return:  length of string
  */
-char *_strdup(char *str)
+int _strlen(char *s)
 {
-	char *p;
-	unsigned int i, s;
+	int a;
 
-	if (str == NULL)
-		return (NULL);
-	for (i = 0; str[i] != '\0'; i++)
+	for (a = 0; s[a] != '\0'; a++)
 	{
 
-		s++;
 	}
-	p = malloc(sizeof(char) * (s + 1));
+	return (a);
+}
 
-	if (p == NULL)
+/**
+ * *_strdup - function to return pointer to string
+ * @str: pointer to string array input
+ * Return: pointer to string created
+ */
+
+char *_strdup(char *str)
+{
+	char *ptr;
+	int size;
+	int x;
+
+	if (str == NULL)
+	{
 		return (NULL);
-	for (i = 0; str[i] != '\0'; i++)
-		p[i] = str[i];
-	return (p);
+	}
+	size = _strlen(str) + 1;
+	ptr = malloc(size * sizeof(char));
+
+	x = 0;
+	while (x < size)
+	{
+		if (ptr == NULL)
+		{
+			return (NULL);
+	}
+		ptr[x] = str[x];
+		x++;
+	}
+	return (ptr);
 }
