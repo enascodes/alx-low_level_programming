@@ -1,52 +1,32 @@
-#include "notrebloh.h"
 #include <stdlib.h>
-#include <stdio.h>
+#include "main.h"
+#include <string.h>
 
 /**
- * _strlen - return length of a string
- *
- * @s: char type
- * Return:  length of string
- */
-int _strlen(char *s)
+ *_strdup - copies the string given as parameter
+ * @str: string to duplicate
+ * Return: pointer to the copied string (Success), Null
+ **/
+char *_strdup(char *str);
+
 {
-	int a;
+	char *k;
+		unsigned int size;
 
-	for (a = 0; s[a] != '\0'; a++)
-	{
-
-	}
-	return (a);
-}
-
-/**
- * *_strdup - function to return pointer to string
- * @str: pointer to string array input
- * Return: pointer to string created
- */
-
-char *_strdup(char *str)
-{
-	char *ptr;
-	int size;
-	int x;
-
-	if (str == NULL)
+	if (str == 0)
 	{
 		return (NULL);
 	}
-	size = _strlen(str) + 1;
-	ptr = malloc(size * sizeof(char));
 
-	x = 0;
-	while (x < size)
+	size = _strlen(str) + 1;
+
+	k = (char *) malloc(size * sizeof(char));
+
+	if (k == 0)
 	{
-		if (ptr == NULL)
-		{
-			return (NULL);
+		return (NULL);
 	}
-		ptr[x] = str[x];
-		x++;
-	}
-	return (ptr);
+
+	_strcpy(k, str);
+	return (k);
 }
